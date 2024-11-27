@@ -10,7 +10,7 @@ function App() {
     return filteredTasks.map((task, index) => (
       <li key={index} className="list-group-item">
         <div className="title fw-semibold">
-          {task.title} <span>{task.state}</span>
+          {task.title} <span className={task.state}>{task.state}</span>
         </div>
         <div>Priority {task.priority}</div>
         <div>Est. time {task.estimatedTime}</div>
