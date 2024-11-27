@@ -1,0 +1,18 @@
+header {
+  background-color: rgb(127, 255, 212);
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+div .title {
+  line-height: 2rem;
+}
+
+span {
+  display: inline-block;
+  background-color: rgb(211, 101, 26);
+  color: white;
+}
