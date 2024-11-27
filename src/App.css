@@ -13,6 +13,7 @@ div .title {
 
 span {
   display: inline-block;
+  padding: 0 1rem;
   background-color: rgb(211, 101, 26);
   color: white;
 }

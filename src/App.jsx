@@ -6,7 +6,7 @@ function App() {
   const filteredTasks = (filters) =>
     tasks.filter((task) => filters.includes(task.state));
 
-  const list = (filteredTasks) => {
+  const createList = (filteredTasks) => {
     return filteredTasks.map((task, index) => (
       <li key={index} className="list-group-item">
         <div className="title fw-semibold">
@@ -32,7 +32,7 @@ function App() {
         </h4>
 
         <ul className="list-group list-group-flush">
-          {list(filteredTasks(["backlog", "in_progress"]))}
+          {createList(filteredTasks(["backlog", "in_progress"]))}
         </ul>
 
         <hr />
@@ -42,7 +42,7 @@ function App() {
         </h4>
 
         <ul className="list-group list-group-flush">
-          {list(filteredTasks(["completed"]))}
+          {createList(filteredTasks(["completed"]))}
         </ul>
       </div>
     </>
