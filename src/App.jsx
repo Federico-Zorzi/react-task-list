@@ -7,15 +7,19 @@ function App() {
     tasks.filter((task) => filters.includes(task.state));
 
   const createList = (filteredTasks) => {
-    return filteredTasks.map((task, index) => (
-      <li key={index} className="list-group-item">
-        <div className="title fw-semibold">
-          {task.title} <span className={task.state}>{task.state}</span>
-        </div>
-        <div>Priority {task.priority}</div>
-        <div>Est. time {task.estimatedTime}</div>
-      </li>
-    ));
+    return (
+      <ul className="list-group list-group-flush">
+        {filteredTasks.map((task, index) => (
+          <li key={index} className="list-group-item">
+            <div className="title fw-semibold">
+              {task.title} <span className={task.state}>{task.state}</span>
+            </div>
+            <div>Priority {task.priority}</div>
+            <div>Est. time {task.estimatedTime}</div>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   const completedTasksFilter = ["completed"];
@@ -34,9 +38,7 @@ function App() {
           Current Tasks ({filteredTasks(uncompletedTasksFilter).length})
         </h4>
 
-        <ul className="list-group list-group-flush">
-          {createList(filteredTasks(uncompletedTasksFilter))}
-        </ul>
+        {createList(filteredTasks(uncompletedTasksFilter))}
 
         <hr />
 
@@ -44,9 +46,7 @@ function App() {
           Completed Tasks ({filteredTasks(completedTasksFilter).length})
         </h4>
 
-        <ul className="list-group list-group-flush">
-          {createList(filteredTasks(completedTasksFilter))}
-        </ul>
+        {createList(filteredTasks(completedTasksFilter))}
       </div>
     </>
   );
