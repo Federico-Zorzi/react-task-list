@@ -3,8 +3,11 @@ import { tasks } from "./data/data";
 import "./App.css";
 
 function App() {
-  const filteredTasks = (filters) =>
-    tasks.filter((task) => filters.includes(task.state));
+  const filteredTasks = (filters) => {
+    if (filters) {
+      return tasks.filter((task) => filters.includes(task.state));
+    } else return tasks;
+  };
 
   const createList = (filteredTasks) => {
     return (
