@@ -18,6 +18,9 @@ function App() {
     ));
   };
 
+  const completedTasksFilter = ["completed"];
+  const uncompletedTasksFilter = ["backlog", "in_progress"];
+
   return (
     <>
       <header>
@@ -28,21 +31,21 @@ function App() {
 
       <div className="container py-2">
         <h4 className="my-3 fw-semibold">
-          Current Tasks ({filteredTasks(["backlog", "in_progress"]).length})
+          Current Tasks ({filteredTasks(uncompletedTasksFilter).length})
         </h4>
 
         <ul className="list-group list-group-flush">
-          {createList(filteredTasks(["backlog", "in_progress"]))}
+          {createList(filteredTasks(uncompletedTasksFilter))}
         </ul>
 
         <hr />
 
         <h4 className="my-3 fw-semibold">
-          Completed Tasks ({filteredTasks(["completed"]).length})
+          Completed Tasks ({filteredTasks(completedTasksFilter).length})
         </h4>
 
         <ul className="list-group list-group-flush">
-          {createList(filteredTasks(["completed"]))}
+          {createList(filteredTasks(completedTasksFilter))}
         </ul>
       </div>
     </>
